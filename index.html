@@ -1069,9 +1069,7 @@
         <div class="w-full">
           <img src="./assest/images/contact-me.svg" alt="phone" />
         </div>
-        <form class="w-full" name="contactUS" 
-          action="https://formspree.io/f/mwpkkqra"
-          method="POST">
+        <form class="w-full" name="submit-to-google-sheet">
           <label
             for="name"
             class="block mb-2 text-sm font-medium text-[#1788ae] dark:text-white"
@@ -1178,6 +1176,9 @@
             Send
           </button>
         </form>
+        <span id="message" class="text-[#36b0d8] mt-[-40px] block ">
+          
+        </span>
       </div>
     </section>
     <!-- End Contact Section -->
@@ -1358,6 +1359,25 @@
           clickable: true,
         },
       });
+    </script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyqnaOWNPKWBVtWV-n8I0cloyxxFpdyiR_jTPpnDCx2oAq5mmCBt8qPsyp96yvPmYSB/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const message = document.getElementById('message')
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            message.innerHTML = "Message Sent Successfully"
+            setTimeout(function(){
+              message.innerHTML = ""
+            },5000)
+            form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
     </script>
 
     <!-- Matter JS -->
