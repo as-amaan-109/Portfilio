@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amaan Syed</title>
-    <link rel="icon" href="assest/images/name-logo-favicon.svg">
+
+    <title>Amaan Syed | Full Stack Developer</title>
+
+    <link rel="icon" href="assest/images/name-logo-favicon.svg" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="font.css" />
     <link rel="stylesheet" href="output.css" />
     <link rel="stylesheet" href="style.css" />
@@ -12,6 +16,11 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- Devicon - Technology Logos -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
 
     <!-- Demo styles -->
@@ -37,13 +46,116 @@
       .swiper-pagination-bullet {
         background-color: #23b9eb;
       }
+
+      * {
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #111;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
+      }
+
+      .glow {
+        box-shadow:
+          0 0 5px #50b8f8,
+          0 0 20px rgba(80, 184, 248, 0.35);
+      }
+
+      .skill-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        min-width: 145px;
+        padding: 13px 18px;
+
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(80, 184, 248, 0.25);
+        border-radius: 14px;
+
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 14px;
+        font-weight: 500;
+
+        transition: all 0.3s ease;
+      }
+
+      .skill-card i {
+        font-size: 28px;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-6px) scale(1.04);
+        border-color: #50b8f8;
+        color: #50b8f8;
+        box-shadow:
+          0 0 8px rgba(80, 184, 248, 0.4),
+          0 0 25px rgba(80, 184, 248, 0.15);
+      }
+
+      .skill-card .custom-icon {
+        font-size: 22px;
+        color: #50b8f8;
+        font-weight: bold;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(80, 184, 248, 0.18);
+        transition: 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        border-color: #50b8f8;
+        box-shadow: 0 0 25px rgba(80, 184, 248, 0.15);
+      }
+
+      .social-link {
+        transition: 0.3s ease;
+      }
+
+      .social-link:hover {
+        color: #50b8f8;
+        transform: translateY(-3px);
+      }
+
+      #about {
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .skill-card {
+          min-width: 125px;
+          padding: 10px 13px;
+          font-size: 13px;
+        }
+
+        .skill-card i {
+          font-size: 24px;
+        }
+      }
     </style>
     <script src="./matter.js" class="sm:relative" defer></script>
   </head>
   <body class="bg-[#111] text-white font-['Nunito']">
-    
     <!-- Starting of Own Info -->
-    <section class="flex flex-col justify-between h-screen ">
+    <section class="flex flex-col justify-between h-screen">
       <header
         class="z-10 pointer-events-none flex items-center justify-between w-full px-4 mt-4 max-w-screen-xl mx-auto"
       >
@@ -75,9 +187,7 @@
           >
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
-          <a 
-            href="tel:8766962313"
-            target="_blank"
+          <a href="tel:8766962313" target="_blank"
             ><svg
               class="hover:text-[#50b8f8]"
               xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +279,7 @@
               class="bg-[#4595eb] py-2 px-5 rounded font-extrabold bg-gradient-to-l from-[#1595b6] to-[#1f2667e6] relative hover:scale-110 ease-in-out duration-100 group"
               onclick="showAbout()"
             >
-               About Me
+              About Me
 
               <svg
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -217,10 +327,7 @@
         <ul class="ml-auto space-y-6 text-[#b0b2c3] absolute right-8">
           <!-- linkedin -->
           <li>
-            <a
-              href="https://shorturl.at/UOLbT"
-              target="_blank"
-            >
+            <a href="https://shorturl.at/UOLbT" target="_blank">
               <svg
                 class="w-7 hover:text-[#50b8f8]"
                 xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +342,10 @@
           </li>
           <!-- twitter -->
           <li>
-            <a href="https://x.com/amaansyedammu?t=h327T6VWCRUoNpbLtp1Qlg&s=09" target="_blank">
+            <a
+              href="https://x.com/amaansyedammu?t=h327T6VWCRUoNpbLtp1Qlg&s=09"
+              target="_blank"
+            >
               <svg
                 class="w-7 hover:text-[#50b8f8]"
                 xmlns="http://www.w3.org/2000/svg"
@@ -281,80 +391,87 @@
           <!-- github -->
           <li>
             <a href="https://github.com/as-amaan-109" target="_blank">
-                <svg class="w-7 hover:text-[#50b8f8]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-                    <path
-                    fill="currentColor"
-                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-                </svg>
+              <svg
+                class="w-7 hover:text-[#50b8f8]"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 496 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                />
+              </svg>
             </a>
-        </li>
+          </li>
         </ul>
       </div>
       <div
-      
         class="relative self-center after:content-[''] after:absolute after:w-[2px] after:h-5 after:bg-[#444] after:left-1/2 after:-translate-x-1/2 after:top-[100px]"
       >
-      <a href="#second-wrapper">
-        <button
-          class="bg-[#4595eb] py-2 px-5 rounded font-extrabold bg-gradient-to-l from-[#1595b6] to-[#1f2667e6] relative hover:scale-110 ease-in-out duration-100 group mb-20"
-        >
-          Latest Works
-
-          <svg
-            xmlns:dc="http://purl.org/dc/elements/1.1/"
-            xmlns:cc="http://creativecommons.org/ns#"
-            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:svg="http://www.w3.org/2000/svg"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-            version="1.1"
-            x="0px"
-            y="0px"
-            width="44"
-            height="44"
-            viewBox="0 0 100 100"
-            class="absolute rotate-90 left-1/2 -translate-x-1/2 top-11 group-hover:top-12 ease-in-out duration-100"
+        <a href="#second-wrapper">
+          <button
+            class="bg-[#4595eb] py-2 px-5 rounded font-extrabold bg-gradient-to-l from-[#1595b6] to-[#1f2667e6] relative hover:scale-110 ease-in-out duration-100 group mb-20"
           >
-            <g transform="translate(0,-952.36218)">
-              <path
-                style="
-                  text-indent: 0;
-                  text-transform: none;
-                  direction: ltr;
-                  block-progression: tb;
-                  baseline-shift: baseline;
-                  color: #000000;
-                  enable-background: accumulate;
-                "
-                d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
-                fill="#fff"
-                fill-opacity="1"
-                stroke="white"
-                stroke-width="2"
-                marker="none"
-                visibility="visible"
-                display="inline"
-                overflow="visible"
-              />
-            </g>
-          </svg>
-        </button>
-      </a>
+            Latest Works
+
+            <svg
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+              xmlns:svg="http://www.w3.org/2000/svg"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+              xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+              version="1.1"
+              x="0px"
+              y="0px"
+              width="44"
+              height="44"
+              viewBox="0 0 100 100"
+              class="absolute rotate-90 left-1/2 -translate-x-1/2 top-11 group-hover:top-12 ease-in-out duration-100"
+            >
+              <g transform="translate(0,-952.36218)">
+                <path
+                  style="
+                    text-indent: 0;
+                    text-transform: none;
+                    direction: ltr;
+                    block-progression: tb;
+                    baseline-shift: baseline;
+                    color: #000000;
+                    enable-background: accumulate;
+                  "
+                  d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
+                  fill="#fff"
+                  fill-opacity="1"
+                  stroke="white"
+                  stroke-width="2"
+                  marker="none"
+                  visibility="visible"
+                  display="inline"
+                  overflow="visible"
+                />
+              </g>
+            </svg>
+          </button>
+        </a>
       </div>
     </section>
     <!-- End of Own Info -->
 
     <!-- Starting of Project -->
-    <section id="second-wrapper" class="max-w-screen-xl mx-auto px-4 relative pb-8 sm:pb-16">
+    <section
+      id="second-wrapper"
+      class="max-w-screen-xl mx-auto px-4 relative pb-8 sm:pb-16"
+    >
       <h2
         class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-[#1788ae] sm:border-b-2 border-[#1788ae]"
       >
         Latest Works
       </h2>
-      
+
       <!-- Project 1 -->
-       <div
+      <div
         class="flex flex-col sm:flex-row gap-4 mt-8 sm:gap-[80px] items-center sm:mt-20 relative"
       >
         <div
@@ -409,7 +526,9 @@
             >(Path Finder and Courses)</span
           >
           <p class="text-justify text-sm md:text-base mt-2">
-            Developed an AI-powered personalized career guidance platform that analyzes student data, interests, and market trends to deliver smart career recommendations.
+            Developed an AI-powered personalized career guidance platform that
+            analyzes student data, interests, and market trends to deliver smart
+            career recommendations.
           </p>
 
           <ul class="flex flex-wrap gap-2 mt-2">
@@ -417,12 +536,12 @@
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #react.js
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #node.js
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
@@ -432,7 +551,7 @@
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #HTML
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
@@ -447,7 +566,7 @@
         </div>
       </div>
       <!-- Project 2 -->
-       <div
+      <div
         class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative"
       >
         <div class="order-2 sm:order-1 w-full">
@@ -458,7 +577,9 @@
             >(E-commerce Platform)</span
           >
           <p class="text-justify text-sm md:text-base mt-2">
-            Developed a responsive E-commerce website with product listings, shopping cart, and secure checkout functionality using modern web technologies..
+            Developed a responsive E-commerce website with product listings,
+            shopping cart, and secure checkout functionality using modern web
+            technologies..
           </p>
 
           <ul class="flex flex-wrap gap-2 mt-2">
@@ -466,12 +587,12 @@
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #react.js
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #node.js
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
@@ -481,7 +602,7 @@
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #HTML
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
@@ -514,7 +635,7 @@
               alt=""
             />
             <span
-              class="flex group-hover:-top-14 ease-jump duration-200  bg-[#893ea7] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2 text-black"
+              class="flex group-hover:-top-14 ease-jump duration-200 bg-[#893ea7] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2 text-black"
               >Multicart
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -590,11 +711,11 @@
           <h3 class="text-[#673cbc] font-bold text-2xl md:text-4xl">
             search.ai
           </h3>
-          <span class="text-[#673cbc] text-base md:text-lg"
-            >(chatbot)</span
-          >
+          <span class="text-[#673cbc] text-base md:text-lg">(chatbot)</span>
           <p class="text-justify text-sm md:text-base mt-2">
-            Developed an AI-powered chatbot for seamless search and query resolution, offering an intuitive user experience and efficient information retrieval using advanced NLP techniques..
+            Developed an AI-powered chatbot for seamless search and query
+            resolution, offering an intuitive user experience and efficient
+            information retrieval using advanced NLP techniques..
           </p>
 
           <ul class="flex flex-wrap gap-2 mt-2">
@@ -602,12 +723,12 @@
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #react.js
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #node.js
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
@@ -617,7 +738,7 @@
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
               #HTML
-            </li>            
+            </li>
             <li
               class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base"
             >
@@ -644,11 +765,12 @@
           <h3 class="text-[#893ea7] font-bold text-2xl md:text-4xl">
             Dashboard
           </h3>
-          <span class="text-[#893ea7] text-base md:text-lg"
-            >(information)</span
-          >
+          <span class="text-[#893ea7] text-base md:text-lg">(information)</span>
           <p class="text-justify text-sm md:text-base mt-2">
-            Designed a modern and intuitive dashboard using Figma, showcasing dynamic data visualization, user-friendly navigation, and interactive features. This project highlights my expertise in UI/UX design and attention to detail.
+            Designed a modern and intuitive dashboard using Figma, showcasing
+            dynamic data visualization, user-friendly navigation, and
+            interactive features. This project highlights my expertise in UI/UX
+            design and attention to detail.
           </p>
 
           <ul class="flex flex-wrap gap-2 mt-2">
@@ -679,7 +801,7 @@
               alt=""
             />
             <span
-              class="flex group-hover:-top-14 ease-jump duration-200  bg-[#893ea7] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2 text-black"
+              class="flex group-hover:-top-14 ease-jump duration-200 bg-[#893ea7] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2 text-black"
               >Dashboard
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -755,11 +877,11 @@
           <h3 class="text-[#f5905c] font-bold text-2xl md:text-4xl">
             Restaurant
           </h3>
-          <span class="text-[#f5905c] text-base md:text-lg"
-            >(food app)</span
-          >
+          <span class="text-[#f5905c] text-base md:text-lg">(food app)</span>
           <p class="text-justify text-sm md:text-base mt-2">
-            I designed a modern restaurant app using Figma, featuring an intuitive user interface for browsing menus, placing orders, and tracking delivery. This project showcases my UX/UI design skills.
+            I designed a modern restaurant app using Figma, featuring an
+            intuitive user interface for browsing menus, placing orders, and
+            tracking delivery. This project showcases my UX/UI design skills.
           </p>
 
           <ul class="flex flex-wrap gap-2 mt-2">
@@ -783,7 +905,10 @@
             >(instagram clone)</span
           >
           <p class="text-justify text-sm md:text-base mt-2">
-            I designed an Instagram clone using Figma, focusing on replicating the user interface and interactions. This project highlights my UI/UX design skills and my ability to create visually appealing, functional apps.
+            I designed an Instagram clone using Figma, focusing on replicating
+            the user interface and interactions. This project highlights my
+            UI/UX design skills and my ability to create visually appealing,
+            functional apps.
           </p>
 
           <ul class="flex flex-wrap gap-2 mt-2">
@@ -887,14 +1012,15 @@
         </a>
 
         <div class="w-full">
-          <h3 class="text-[#8289fb] font-bold text-2xl md:text-4xl">
-            Flight
-          </h3>
+          <h3 class="text-[#8289fb] font-bold text-2xl md:text-4xl">Flight</h3>
           <span class="text-[#8289fb] text-base md:text-lg"
             >(Ticket Booking app)</span
           >
           <p class="text-justify text-sm md:text-base mt-2">
-            I designed a modern and user-friendly flight booking app using Figma, focusing on seamless navigation, intuitive booking flow, and sleek visual elements to enhance the travel planning experience for users.
+            I designed a modern and user-friendly flight booking app using
+            Figma, focusing on seamless navigation, intuitive booking flow, and
+            sleek visual elements to enhance the travel planning experience for
+            users.
           </p>
 
           <ul class="flex flex-wrap gap-2 mt-2">
@@ -911,14 +1037,13 @@
         class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative"
       >
         <div class="order-2 sm:order-1 w-full">
-          <h3 class="text-[#4d5358] font-bold text-2xl md:text-4xl">
-            Weather
-          </h3>
-          <span class="text-[#4d5358] text-base md:text-lg"
-            >(Weather app)</span
-          >
+          <h3 class="text-[#4d5358] font-bold text-2xl md:text-4xl">Weather</h3>
+          <span class="text-[#4d5358] text-base md:text-lg">(Weather app)</span>
           <p class="text-justify text-sm md:text-base mt-2">
-            I designed a sleek, user-friendly weather app using Figma, focusing on real-time updates, detailed forecasts, and intuitive navigation. This app enhances the user experience with a clean and responsive interface.
+            I designed a sleek, user-friendly weather app using Figma, focusing
+            on real-time updates, detailed forecasts, and intuitive navigation.
+            This app enhances the user experience with a clean and responsive
+            interface.
           </p>
 
           <ul class="flex flex-wrap gap-2 mt-2">
@@ -1007,7 +1132,14 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify md:text-base mb-2">
-                  “Amaan Syed is an exceptional individual with a humble and understanding personality. His ability to blend technical expertise with soft skills makes him a standout in his field. He is highly skilled in his profession, demonstrating a strong command over both technical and interpersonal aspects, which is truly impressive. His consistent dedication and teamwork are commendable, and I’m confident he will continue to excel in all his endeavors.”
+                  “Amaan Syed is an exceptional individual with a humble and
+                  understanding personality. His ability to blend technical
+                  expertise with soft skills makes him a standout in his field.
+                  He is highly skilled in his profession, demonstrating a strong
+                  command over both technical and interpersonal aspects, which
+                  is truly impressive. His consistent dedication and teamwork
+                  are commendable, and I’m confident he will continue to excel
+                  in all his endeavors.”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1034,7 +1166,15 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify md:text-base mb-2">
-                  “Working with Amaan Syed was an incredible experience, thanks to his technical expertise and easygoing personality. He has a unique ability to simplify complex problems, making every challenge feel manageable. Amaan fostered a collaborative and fun environment, consistently bringing out the best in the team. Whether solving intricate coding issues or lightening the mood with his humor, he made a positive impact. Collaborating with someone so talented and positive made the experience both productive and memorable.”
+                  “Working with Amaan Syed was an incredible experience, thanks
+                  to his technical expertise and easygoing personality. He has a
+                  unique ability to simplify complex problems, making every
+                  challenge feel manageable. Amaan fostered a collaborative and
+                  fun environment, consistently bringing out the best in the
+                  team. Whether solving intricate coding issues or lightening
+                  the mood with his humor, he made a positive impact.
+                  Collaborating with someone so talented and positive made the
+                  experience both productive and memorable.”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1061,7 +1201,15 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify text-justify md:text-base mb-2">
-                  “Amaan Syed is a force to be reckoned with in the world of technology . Not only is he a technical whiz, but he's also got a knack for making even the most complex concepts seem like a breeze. He's the kind of guy who can solve a coding problem with one hand and diffuse a tense situation with the other. Oh, and did we mention his legendary ability to turn any meeting into a stand-up comedy routine? Amaan's unique blend of technical prowess and comedic flair makes him a truly one-of-a-kind professional.”
+                  “Amaan Syed is a force to be reckoned with in the world of
+                  technology . Not only is he a technical whiz, but he's also
+                  got a knack for making even the most complex concepts seem
+                  like a breeze. He's the kind of guy who can solve a coding
+                  problem with one hand and diffuse a tense situation with the
+                  other. Oh, and did we mention his legendary ability to turn
+                  any meeting into a stand-up comedy routine? Amaan's unique
+                  blend of technical prowess and comedic flair makes him a truly
+                  one-of-a-kind professional.”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1088,7 +1236,11 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify md:text-base mb-2">
-                  “Amaan Syed is a dedicated and creative individual with a passion for technology and innovation. He excels in problem-solving and has a keen interest in exploring new ideas. His strong work ethic, coupled with excellent communication skills, makes him a valuable team player.”
+                  “Amaan Syed is a dedicated and creative individual with a
+                  passion for technology and innovation. He excels in
+                  problem-solving and has a keen interest in exploring new
+                  ideas. His strong work ethic, coupled with excellent
+                  communication skills, makes him a valuable team player.”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1115,7 +1267,11 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify md:text-base mb-2">
-                  “Amaan Syed is an incredible batchmate and a genuinely good person. He's always kind, thoughtful, and brings positive energy to everyone around him. His friendly nature and willingness to help others make him a truly valuable friend. I'm grateful to have him as a companion on this journey!”
+                  “Amaan Syed is an incredible batchmate and a genuinely good
+                  person. He's always kind, thoughtful, and brings positive
+                  energy to everyone around him. His friendly nature and
+                  willingness to help others make him a truly valuable friend.
+                  I'm grateful to have him as a companion on this journey!”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1142,7 +1298,14 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify md:text-base mb-2">
-                  “Amaan Syed is an exemplary leader known for his humility, grace, and dedication to both results and team values. His punctuality, discipline, and deep technical expertise set him apart, while his problem-solving and critical thinking skills make him a valuable asset. He stays ahead of industry trends, consistently inspiring those around him. With a bright future driven by his leadership and commitment to excellence, working with him has been a pleasure.”
+                  “Amaan Syed is an exemplary leader known for his humility,
+                  grace, and dedication to both results and team values. His
+                  punctuality, discipline, and deep technical expertise set him
+                  apart, while his problem-solving and critical thinking skills
+                  make him a valuable asset. He stays ahead of industry trends,
+                  consistently inspiring those around him. With a bright future
+                  driven by his leadership and commitment to excellence, working
+                  with him has been a pleasure.”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1169,7 +1332,16 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify md:text-base mb-2">
-                  “Amaan Syed is the results-oriented third-year Computer Science student with a solid foundation in programming, proficient in Web Developer and UI|UX Designer. Skilled in data structures, algorithms, and object-oriented principles, with a proven ability to tackle coding challenges. A proactive learner passionate about new technologies, eager to enhance skills through coursework and personal projects. Demonstrates excellent problem-solving abilities and effective teamwork, aiming to contribute to real-world software development projects.”
+                  “Amaan Syed is the results-oriented third-year Computer
+                  Science student with a solid foundation in programming,
+                  proficient in Web Developer and UI|UX Designer. Skilled in
+                  data structures, algorithms, and object-oriented principles,
+                  with a proven ability to tackle coding challenges. A proactive
+                  learner passionate about new technologies, eager to enhance
+                  skills through coursework and personal projects. Demonstrates
+                  excellent problem-solving abilities and effective teamwork,
+                  aiming to contribute to real-world software development
+                  projects.”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1196,7 +1368,15 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify md:text-base mb-2">
-                  “Amaan Syed is a powerhouse in the field of Web Developer. He's not just a technical expert; he has a remarkable talent for simplifying even the toughest concepts. He’s the type of person who can tackle a coding issue with ease while also handling challenging situations with finesse. And let’s not forget his famous skill for bringing humor into any meeting, turning it into a lively and fun experience. Amaan’s rare combination of technical expertise and a sharp sense of humor sets him apart as a truly exceptional professional.”
+                  “Amaan Syed is a powerhouse in the field of Web Developer.
+                  He's not just a technical expert; he has a remarkable talent
+                  for simplifying even the toughest concepts. He’s the type of
+                  person who can tackle a coding issue with ease while also
+                  handling challenging situations with finesse. And let’s not
+                  forget his famous skill for bringing humor into any meeting,
+                  turning it into a lively and fun experience. Amaan’s rare
+                  combination of technical expertise and a sharp sense of humor
+                  sets him apart as a truly exceptional professional.”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1223,7 +1403,15 @@
                 class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative"
               >
                 <p class="text-sm text-justify md:text-base mb-2">
-                  “Amaan Syed is an exceptional professional who blends technical expertise with remarkable leadership and team values. His punctuality, discipline, and problem-solving skills, paired with a talent for simplifying complex concepts, make him an invaluable web developer. Known for his humility, humor, and forward-thinking mindset, Amaan inspires those around him while staying ahead of industry trends. Collaborating with him is both productive and enjoyable, making him a true asset and a pleasure to work with.”
+                  “Amaan Syed is an exceptional professional who blends
+                  technical expertise with remarkable leadership and team
+                  values. His punctuality, discipline, and problem-solving
+                  skills, paired with a talent for simplifying complex concepts,
+                  make him an invaluable web developer. Known for his humility,
+                  humor, and forward-thinking mindset, Amaan inspires those
+                  around him while staying ahead of industry trends.
+                  Collaborating with him is both productive and enjoyable,
+                  making him a true asset and a pleasure to work with.”
                 </p>
                 <h2
                   class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl"
@@ -1245,7 +1433,7 @@
     <!-- End of Team Secission -->
 
     <!-- Contact Section -->
-    <section class="max-w-screen-xl mx-auto px-4 pb-12">
+    <section class="max-w-screen-xl mx-auto px-4 pb-12" id="contact">
       <h2
         class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-[#1788ae] sm:border-2 border-[#1788ae] rounded-md"
       >
@@ -1294,9 +1482,17 @@
             <div
               class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
             >
-            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
-              <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
-          </svg>
+              <svg
+                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 19 18"
+              >
+                <path
+                  d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"
+                />
+              </svg>
             </div>
             <input
               type="number"
@@ -1362,14 +1558,12 @@
             Send
           </button>
         </form>
-        <span id="message" class="text-[#36b0d8] mt-[-40px] block ">
-          
-        </span>
+        <span id="message" class="text-[#36b0d8] mt-[-40px] block"> </span>
       </div>
     </section>
     <!-- End Contact Section -->
 
-     <!-- Start Footer -->
+    <!-- Start Footer -->
     <footer class="flex flex-col items-center pb-10">
       <p class="text-xs text-gray-300">Amaan Syed © 2024</p>
       <div class="black-logo my-4 relative">
@@ -1405,12 +1599,14 @@
             </linearGradient>
           </defs>
         </svg>
-        
       </div>
       <ul class="mx-auto flex items-center justify-center gap-6 text-[#b0b2c3]">
         <!-- LinkedIn -->
         <li>
-          <a href="https://www.linkedin.com/in/amaan-syed109?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/amaan-syed109?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+          >
             <svg
               class="w-5 hover:text-[#50b8f8]"
               xmlns="http://www.w3.org/2000/svg"
@@ -1425,7 +1621,10 @@
         </li>
         <!-- Twitter -->
         <li>
-          <a href="https://x.com/amaansyedammu?t=h327T6VWCRUoNpbLtp1Qlg&s=09" target="_blank">
+          <a
+            href="https://x.com/amaansyedammu?t=h327T6VWCRUoNpbLtp1Qlg&s=09"
+            target="_blank"
+          >
             <svg
               class="w-5 hover:text-[#50b8f8]"
               xmlns="http://www.w3.org/2000/svg"
@@ -1471,51 +1670,440 @@
         <!-- github -->
         <li>
           <a href="https://github.com/as-amaan-109">
-            <svg class="w-5 hover:text-[#50b8f8]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <svg
+              class="w-5 hover:text-[#50b8f8]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 496 512"
+            >
               <path
-              fill="currentColor"
-                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-          </svg>
+                fill="currentColor"
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+              />
+            </svg>
           </a>
         </li>
       </ul>
     </footer>
     <!-- End of Footer -->
 
+    <!-- ========================================================= -->
+    <!-- ABOUT ME OVERLAY -->
+    <!-- ========================================================= -->
 
-    <!-- About Me -->   
-    <section class="about min-h-screen w-full py-20 px-5 items-center justify-center about aboutme-section  fixed top-0 left-0 h-full bg-[#111] hidden z-50" id="about">
-      <button id="aboutme-close" class="absolute top-5 right-5 text-white hover:rotate-45 ease-in-out duration-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-      <div class="main flex items-center justify-between flex-wrap max-w-6xl w-full">
-          <!-- Image Container -->
-          <div class="img-container flex justify-center flex-1 max-w-sm w-full">
-              <img 
-                  src="Mockups/man.webp" 
-                  alt="About Me" 
-                  class="border-2 border-[#50b8f8] shadow-[0_0_5px_#50b8f8,0_0_25px_#50b8f8] w-full h-auto rounded-full max-w-xs transition-transform duration-500 ease-in-out hover:scale-110"
-              />
+    <section
+      id="about"
+      class="fixed inset-0 hidden z-50 bg-[#111] overflow-y-auto px-5 py-10"
+    >
+      <!-- CLOSE BUTTON -->
+
+      <button
+        id="aboutme-close"
+        type="button"
+        class="fixed top-5 right-5 z-[60] text-white hover:text-[#50b8f8] hover:rotate-90 transition duration-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- MAIN -->
+
+      <div class="max-w-6xl w-full mx-auto pt-8">
+        <!-- ===================================================== -->
+        <!-- ABOUT TOP -->
+        <!-- ===================================================== -->
+
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <!-- IMAGE -->
+
+          <div class="w-full lg:w-[40%] flex justify-center flex-shrink-0">
+            <img
+              src="Mockups/My Photo.webp"
+              alt="Amaan Syed"
+              class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 object-cover rounded-full border-2 border-[#50b8f8] shadow-[0_0_5px_#50b8f8,0_0_30px_#50b8f8] hover:scale-105 transition duration-500"
+            />
           </div>
-          <!-- Text Content -->
-          <div class="about-text flex-2 max-w-lg mt-5 sm:mt-0 sm:ml-5 text-center sm:text-left">
-              <h1 class="text-white text-3xl sm:text-4xl mb-5">About Me</h1>
-              <h5 class="text-white text-xl sm:text-2xl mb-5">
-                  Web Developer <span class="text-[#50b8f8]">& Designer</span>
-              </h5>
-              <p class="text-white/80 text-sm sm:text-base leading-7 mb-7">
-                  I am very passionate about improving my coding skills & developing applications & websites. I build WebApps and Websites using MERN Stack. Working for myself to improve my skills. Love to build Full-Stack clones.
-              </p>
-              <!-- <div class="button-group flex gap-2 justify-center sm:justify-start">
-                  <button class="bg-transparent text-[#50b8f8] text-sm sm:text-base border-2 border-[#50b8f8] px-4 py-2 rounded-full transition-transform duration-300 ease-in-out hover:bg-[#50b8f8] hover:text-white hover:shadow-[0_0_5px_#50b8f8,0_0_25px_#50b8f8] hover:scale-110">
-                      Let's Talk
-                  </button>
-                  <button class="bg-transparent text-[#50b8f8] text-sm sm:text-base border-2 border-[#50b8f8] px-4 py-2 rounded-full transition-transform duration-300 ease-in-out hover:bg-[#50b8f8] hover:text-white hover:shadow-[0_0_5px_#50b8f8,0_0_25px_#50b8f8] hover:scale-110">
-                      My CV
-                  </button>
-              </div> -->
+
+          <!-- ABOUT TEXT -->
+
+          <div class="w-full lg:w-[60%] text-center lg:text-left">
+            <h1 class="text-[#50b8f8] text-4xl sm:text-5xl font-bold mb-5">
+              About Me
+            </h1>
+
+            <h2 class="text-white text-xl sm:text-2xl mb-5">
+              Full Stack Developer
+
+              <span class="text-[#50b8f8]"> & Software Developer </span>
+            </h2>
+
+            <p
+              class="text-white/80 text-sm sm:text-base leading-8 text-justify"
+            >
+              I’m a passionate Full Stack Developer and B.Tech Computer Science
+              & Engineering student specializing in MERN Stack and Java Backend
+              Development. I build modern, scalable, and user-focused web
+              applications using React.js, Node.js, Express.js, MongoDB, Java,
+              Spring Boot, and PostgreSQL. I enjoy developing complete
+              applications from responsive frontend interfaces to secure backend
+              APIs and database systems. As a hackathon participant, I love
+              solving real-world problems, exploring new technologies, and
+              turning ideas into practical digital solutions. I’m continuously
+              improving my skills and looking for opportunities to grow as a
+              Software / Full Stack Developer.
+            </p>
+
+            <!-- BUTTONS -->
+
+            <div
+              class="flex flex-wrap gap-4 justify-center lg:justify-start mt-8"
+            >
+              <!-- LET'S TALK -->
+
+              <button
+                id="lets-talk-btn"
+                type="button"
+                class="px-6 py-3 rounded-full border-2 border-[#50b8f8] text-[#50b8f8] hover:bg-[#50b8f8] hover:text-white hover:shadow-[0_0_8px_#50b8f8,0_0_25px_#50b8f8] hover:scale-105 transition duration-300"
+              >
+                Let's Talk
+              </button>
+
+              <!-- CV -->
+
+              <a
+                href="Resume/AMAAN_SYED_8766962313.pdf"
+                id="cv-btn"
+                class="px-6 py-3 rounded-full border-2 border-[#50b8f8] text-[#50b8f8] hover:bg-[#50b8f8] hover:text-white hover:shadow-[0_0_8px_#50b8f8,0_0_25px_#50b8f8] hover:scale-105 transition duration-300"
+              >
+                My CV
+              </a>
+            </div>
           </div>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- TECH STACK -->
+        <!-- ===================================================== -->
+
+        <div class="w-full mt-20 pb-20">
+          <div class="text-center mb-12">
+            <p class="text-[#50b8f8] mb-2">MY SKILLS</p>
+
+            <h2 class="text-3xl sm:text-4xl font-bold">Tech Stack & Skills</h2>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- LANGUAGES -->
+          <!-- ================================================= -->
+
+          <div class="mb-12">
+            <h3 class="text-xl font-semibold text-white text-center mb-6">
+              Languages
+            </h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="skill-card">
+                <i class="devicon-python-plain colored"></i>
+                <span>Python</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-java-plain colored"></i>
+                <span>Java</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-javascript-plain colored"></i>
+                <span>JavaScript</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-typescript-plain colored"></i>
+                <span>TypeScript</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-html5-plain colored"></i>
+                <span>HTML5</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-css3-plain colored"></i>
+                <span>CSS3</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-tailwindcss-original colored"></i>
+                <span>Tailwind CSS</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">SQL</span>
+                <span>SQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- FRAMEWORKS -->
+          <!-- ================================================= -->
+
+          <div class="mb-12">
+            <h3 class="text-xl font-semibold text-white text-center mb-6">
+              Frameworks & Libraries
+            </h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="skill-card">
+                <i class="devicon-react-original colored"></i>
+                <span>React.js</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-nextjs-original"></i>
+                <span>Next.js</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-nodejs-plain colored"></i>
+                <span>Node.js</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-express-original"></i>
+                <span>Express.js</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-angularjs-plain colored"></i>
+                <span>Angular</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-bootstrap-plain colored"></i>
+                <span>Bootstrap</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">REST</span>
+                <span>REST APIs</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">M</span>
+                <span>Matplotlib</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- DATABASE & CLOUD -->
+          <!-- ================================================= -->
+
+          <div class="mb-12">
+            <h3 class="text-xl font-semibold text-white text-center mb-6">
+              Cloud & Databases
+            </h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="skill-card">
+                <i class="devicon-mysql-plain colored"></i>
+                <span>MySQL</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-mongodb-plain colored"></i>
+                <span>MongoDB</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-postgresql-plain colored"></i>
+                <span>PostgreSQL</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-firebase-plain colored"></i>
+                <span>Firebase</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+                <span>AWS</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-azure-plain colored"></i>
+                <span>Azure</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-googlecloud-plain colored"></i>
+                <span>Google Cloud</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">P</span>
+                <span>Pinecone</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- DEVOPS -->
+          <!-- ================================================= -->
+
+          <div class="mb-12">
+            <h3 class="text-xl font-semibold text-white text-center mb-6">
+              DevOps & Tools
+            </h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="skill-card">
+                <i class="devicon-git-plain colored"></i>
+                <span>Git</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-github-original"></i>
+                <span>GitHub</span>
+              </div>
+
+              <div class="skill-card">
+                <i class="devicon-docker-plain colored"></i>
+                <span>Docker</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">CI/CD</span>
+                <span>CI/CD Pipelines</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- GENERATIVE AI -->
+          <!-- ================================================= -->
+
+          <div class="mb-12">
+            <h3 class="text-xl font-semibold text-white text-center mb-6">
+              Generative AI
+            </h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="skill-card">
+                <span class="custom-icon">AI</span>
+                <span>LLMs</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">R</span>
+                <span>RAG</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">◎</span>
+                <span>OpenAI API</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">G</span>
+                <span>Gemini API</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">NLP</span>
+                <span>NLP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- CORE CS -->
+          <!-- ================================================= -->
+
+          <div class="mb-12">
+            <h3 class="text-xl font-semibold text-white text-center mb-6">
+              Core Computer Science
+            </h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="skill-card">
+                <span class="custom-icon">DSA</span>
+                <span>Data Structures & Algorithms</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">OOP</span>
+                <span>OOP</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">OS</span>
+                <span>Operating Systems</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">CN</span>
+                <span>Computer Networks</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">DS</span>
+                <span>Data Science</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- SOFT SKILLS -->
+          <!-- ================================================= -->
+
+          <div>
+            <h3 class="text-xl font-semibold text-white text-center mb-6">
+              Soft Skills
+            </h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="skill-card">
+                <span class="custom-icon">L</span>
+                <span>Leadership</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">P</span>
+                <span>Problem Solving</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">C</span>
+                <span>Communication</span>
+              </div>
+
+              <div class="skill-card">
+                <span class="custom-icon">A</span>
+                <span>Agile Project Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </section>
-  
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- LET'S CONNECT -->
+    <!-- ========================================================= -->
+
     <!-- End of About Me -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -1548,31 +2136,53 @@
     </script>
 
     <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyqnaOWNPKWBVtWV-n8I0cloyxxFpdyiR_jTPpnDCx2oAq5mmCBt8qPsyp96yvPmYSB/exec'
-      const form = document.forms['submit-to-google-sheet']
-      const message = document.getElementById('message')
-    
-      form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => {
-            message.innerHTML = "Message Sent Successfully"
-            setTimeout(function(){
-              message.innerHTML = ""
-            },5000)
-            form.reset()
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbyqnaOWNPKWBVtWV-n8I0cloyxxFpdyiR_jTPpnDCx2oAq5mmCBt8qPsyp96yvPmYSB/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      const message = document.getElementById("message");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            message.innerHTML = "Message Sent Successfully";
+            setTimeout(function () {
+              message.innerHTML = "";
+            }, 5000);
+            form.reset();
           })
-          .catch(error => console.error('Error!', error.message))
-      })
+          .catch((error) => console.error("Error!", error.message));
+      });
+
+      /* ========================================================
+     LET'S TALK
+  ======================================================== */
+
+      const letsTalkBtn = document.getElementById("lets-talk-btn");
+
+      if (letsTalkBtn) {
+        letsTalkBtn.addEventListener("click", function () {
+          /* Close About overlay */
+          hideAbout();
+
+          /* Go to Let's Connect */
+          setTimeout(function () {
+            const contact = document.getElementById("contact");
+
+            if (contact) {
+              contact.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }, 100);
+        });
+      }
     </script>
 
     <!-- Matter JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.min.js"></script>
     <script src="https://cdn/jsdelivr.net/npm/matter-wrap@0.2.0/build/matter-wrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/matter-attractors@0.1.6/build/matter-attractors.min.js"></script>
-
   </body>
 </html>
-
-
-
