@@ -152,6 +152,14 @@
       }
     </style>
     <script src="./matter.js" class="sm:relative" defer></script>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+      emailjs.init({
+        publicKey: "A86jO2ZW87GE766ny",
+      });
+    </script>
   </head>
   <body class="bg-[#111] text-white font-['Nunito']">
     <!-- Starting of Own Info -->
@@ -1468,7 +1476,7 @@
             <input
               type="text"
               id="name"
-              name="name"
+              name="from_name"
               class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               placeholder="Enter your name"
             />
@@ -1497,7 +1505,7 @@
             <input
               type="number"
               id="number"
-              name="number"
+              name="phone"
               class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               placeholder="+91 9876543210"
             />
@@ -1529,7 +1537,7 @@
             <input
               type="text"
               id="email"
-              name="email"
+              name="from_email"
               class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               placeholder="name@gmail.com"
             />
@@ -2136,27 +2144,38 @@
     </script>
 
     <script>
-      const scriptURL =
-        "https://script.google.com/macros/s/AKfycbyqnaOWNPKWBVtWV-n8I0cloyxxFpdyiR_jTPpnDCx2oAq5mmCBt8qPsyp96yvPmYSB/exec";
       const form = document.forms["submit-to-google-sheet"];
       const message = document.getElementById("message");
 
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => {
-            message.innerHTML = "Message Sent Successfully";
-            setTimeout(function () {
-              message.innerHTML = "";
-            }, 5000);
-            form.reset();
-          })
-          .catch((error) => console.error("Error!", error.message));
+
+        message.innerHTML = "Sending...";
+
+        try {
+          await emailjs.sendForm("service_n11rivh", "template_rkvj6iq", form);
+
+          message.innerHTML = "Message Sent Successfully! ✅";
+
+          form.reset();
+
+          setTimeout(() => {
+            message.innerHTML = "";
+          }, 5000);
+        } catch (error) {
+          console.error("EmailJS Error:", error);
+
+          message.innerHTML = "Something went wrong. Please try again. ❌";
+
+          setTimeout(() => {
+            message.innerHTML = "";
+          }, 5000);
+        }
       });
 
       /* ========================================================
-     LET'S TALK
-  ======================================================== */
+        LET'S TALK
+       ======================================================== */
 
       const letsTalkBtn = document.getElementById("lets-talk-btn");
 
